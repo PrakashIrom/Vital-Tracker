@@ -8,15 +8,15 @@ import androidx.compose.ui.Modifier
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DialogBox(
-    onDismiss:()-> Unit,
+    onDismiss: () -> Unit,
     onConfirm: () -> Unit,
     title: String,
     dialogContent: @Composable () -> Unit,
-){
+) {
     BasicAlertDialog(
         onDismissRequest = onDismiss,
         modifier = Modifier,
-    ){
-      dialogContent()
+    ) {
+        dialogContent()
     }
 }

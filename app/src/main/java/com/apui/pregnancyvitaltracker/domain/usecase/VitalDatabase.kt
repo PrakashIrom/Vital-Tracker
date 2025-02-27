@@ -7,5 +7,6 @@ class VitalDatabaseUseCase(private val vitalRepository: VitalRepository) {
 
     operator fun invoke() = vitalRepository.getAllVitalRecords()
 
-    suspend fun insertVitalRecord(record: VitalRecordEntity) = vitalRepository.insertVitalRecord(record)
+    suspend fun insertVitalRecord(record: VitalRecordEntity) =
+        vitalRepository.insertVitalRecord(record)
 }

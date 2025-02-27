@@ -8,13 +8,13 @@ import com.apui.pregnancyvitaltracker.ui.vitalinfo.VitalInfoViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val databaseModule = module{
+val databaseModule = module {
     single { VitalDatabase.getDatabase(get()).itemDao() }
     single<VitalRepository> { VitalRepositoryImpl(get()) }
     single {
         VitalDatabaseUseCase(get())
     }
-    viewModel<VitalInfoViewModel>{
+    viewModel<VitalInfoViewModel> {
         VitalInfoViewModel(get())
     }
 }

@@ -11,11 +11,11 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun FABButton(
     onClick: () -> Unit
-){
+) {
     FloatingActionButton(
         onClick = onClick,
         shape = MaterialTheme.shapes.extraLarge,
-        containerColor = Color(0xFF9C27B0)
+        containerColor = Color(0xFF9C4DB9)
     ) {
         Icon(imageVector = Icons.Default.Add, contentDescription = "Add Button")
     }
