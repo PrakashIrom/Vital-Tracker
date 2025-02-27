@@ -13,10 +13,13 @@ import androidx.compose.ui.text.font.FontWeight
 @Composable
 fun TopBar() {
     TopAppBar(
-        title = { Text("Track My Pregnancy",
-            fontWeight = FontWeight.W600,
-            color = Color(0xFF5F1C9C)
-            ) },
+        title = {
+            Text(
+                "Track My Pregnancy",
+                fontWeight = FontWeight.W600,
+                color = Color(0xFF5F1C9C)
+            )
+        },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color(0xFFC8ADFC),
             titleContentColor = MaterialTheme.colorScheme.onPrimary

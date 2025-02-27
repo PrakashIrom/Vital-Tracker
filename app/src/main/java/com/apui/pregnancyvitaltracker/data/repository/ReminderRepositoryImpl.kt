@@ -10,7 +10,7 @@ import com.apui.pregnancyvitaltracker.worker.ReminderWorker
 import java.util.concurrent.TimeUnit
 
 
-class ReminderRepositoryImpl(private val context: Context): ReminderRepository {
+class ReminderRepositoryImpl(private val context: Context) : ReminderRepository {
 
     override fun scheduleReminder() {
         val workRequest = PeriodicWorkRequestBuilder<ReminderWorker>(30, TimeUnit.MINUTES)

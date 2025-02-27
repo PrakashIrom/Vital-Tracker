@@ -3,7 +3,6 @@ package com.apui.pregnancyvitaltracker.ui.vitalinfo
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apui.pregnancyvitaltracker.data.model.VitalRecordEntity
-import com.apui.pregnancyvitaltracker.domain.usecase.ScheduleReminderUseCase
 import com.apui.pregnancyvitaltracker.domain.usecase.VitalDatabaseUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
