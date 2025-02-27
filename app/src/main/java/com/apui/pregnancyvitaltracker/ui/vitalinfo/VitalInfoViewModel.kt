@@ -1,4 +1,4 @@
-package com.apui.pregnancyvitaltracker.ui.viewModel
+package com.apui.pregnancyvitaltracker.ui.vitalinfo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,8 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class VitalDBViewModel(private val vitalDatabaseUseCase: VitalDatabaseUseCase) : ViewModel() {
-
+class VitalInfoViewModel(private val vitalDatabaseUseCase: VitalDatabaseUseCase) : ViewModel() {
     private val _vitalItems = MutableStateFlow<List<VitalRecordEntity>>(emptyList())
     val vitalItems: StateFlow<List<VitalRecordEntity>> = _vitalItems
 
@@ -31,5 +30,4 @@ class VitalDBViewModel(private val vitalDatabaseUseCase: VitalDatabaseUseCase) :
             }
         }
     }
-
 }
