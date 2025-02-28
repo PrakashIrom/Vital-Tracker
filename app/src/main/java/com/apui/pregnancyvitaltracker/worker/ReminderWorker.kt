@@ -11,6 +11,7 @@ import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.apui.pregnancyvitaltracker.MainActivity
+import com.apui.pregnancyvitaltracker.R
 
 class ReminderWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(ctx, params) {
 
@@ -52,6 +53,7 @@ class ReminderWorker(ctx: Context, params: WorkerParameters) : CoroutineWorker(c
         }
 
         val notification = NotificationCompat.Builder(applicationContext, channelId)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("Time to log your vitals!")
             .setContentText("Stay on top of your health. Please update your vitals now!")
             .setContentIntent(pendingIntent)

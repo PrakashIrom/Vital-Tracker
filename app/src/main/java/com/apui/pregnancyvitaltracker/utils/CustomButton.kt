@@ -5,7 +5,9 @@ import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun CustomButton(
@@ -21,6 +23,9 @@ fun CustomButton(
         shape = shape,
         colors = colors
     ) {
-        Text(text = text)
+        Text(text = text,
+            color = Color(0xFFFFFFFF),
+            fontWeight = FontWeight.W300
+            )
     }
 }

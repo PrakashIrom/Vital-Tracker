@@ -2,6 +2,7 @@ package com.apui.pregnancyvitaltracker
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LifecycleOwner
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.apui.pregnancyvitaltracker.domain.usecase.ScheduleReminderUseCase
@@ -11,21 +12,13 @@ class ReminderViewModel(
     private val scheduleReminderUseCase: ScheduleReminderUseCase
 ) :
     AndroidViewModel(application) {
-    init {
-        scheduleReminder()
-    }
+    private val workManager = WorkManager.getInstance(application.applicationContext)
 
-    private fun scheduleReminder() {
-        scheduleReminderIfNeeded()
-    }
-
-    private fun scheduleReminderIfNeeded() {
-        WorkManager.getInstance(getApplication<Application>().applicationContext)
-            .getWorkInfosForUniqueWorkLiveData("VitalReminder")
-            .observeForever { workInfos ->
-                val isScheduled = workInfos.any {
-                    it.state == WorkInfo.State.ENQUEUED || it.state == WorkInfo.State.RUNNING
-                }
+    fun observeWorkStatus(lifecycleOwner: LifecycleOwner) {
+        workManager.getWorkInfosForUniqueWorkLiveData("VitalReminder")
+            .observe(lifecycleOwner) { workInfos ->
+                val isScheduled =
+                    workInfos.any { it.state == WorkInfo.State.ENQUEUED || it.state == WorkInfo.State.RUNNING }
                 if (!isScheduled) {
                     scheduleReminderUseCase()
                 }

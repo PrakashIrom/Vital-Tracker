@@ -44,7 +44,8 @@ fun VitalInfo(
                 modifier = Modifier
                     .padding(vertical = 11.dp, horizontal = 11.dp)
                     .fillMaxWidth(),
-                timeStamp = vitalItem.timestamp
+                timeStamp = vitalItem.timestamp,
+                color = Color(0xFFEBB9FE)
             ) {
                 Column(
                     modifier = Modifier

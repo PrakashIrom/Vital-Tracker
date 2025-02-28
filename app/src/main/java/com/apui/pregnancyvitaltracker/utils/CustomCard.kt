@@ -20,11 +20,12 @@ import androidx.compose.ui.unit.dp
 fun CustomCard(
     modifier: Modifier = Modifier,
     timeStamp: Long = 0,
-    content: @Composable () -> Unit
+    color: Color,
+    content: @Composable () -> Unit,
 ) {
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFEBB9FE)),
+        colors = CardDefaults.cardColors(containerColor = color),
         shape = RoundedCornerShape(8.dp)
     ) {
         Box {
@@ -33,23 +34,24 @@ fun CustomCard(
             ) {
                 content()
             }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(31.dp)
-                    .background(
-                        color = Color(0xFF9C4DB9),
-                        shape = RoundedCornerShape(bottomEnd = 4.dp, bottomStart = 4.dp)
-                    )
-                    .align(Alignment.BottomCenter)
-            ) {
-                Text(
-                    timeStamp.formatTime(),
+            if (timeStamp.toInt() != 0)
+                Box(
                     modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(end = 5.dp)
-                )
-            }
+                        .fillMaxWidth()
+                        .height(31.dp)
+                        .background(
+                            color = Color(0xFF9C4DB9),
+                            shape = RoundedCornerShape(bottomEnd = 4.dp, bottomStart = 4.dp)
+                        )
+                        .align(Alignment.BottomCenter)
+                ) {
+                    Text(
+                        timeStamp.formatTime(),
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(end = 5.dp)
+                    )
+                }
         }
     }
 }

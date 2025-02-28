@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.apui.pregnancyvitaltracker.data.model.VitalRecordEntity
 import com.apui.pregnancyvitaltracker.ui.vitalinfo.VitalInfo
@@ -48,13 +49,15 @@ fun MainScreen(
             onConfirm = { showDialogBox.value = false },
             title = "Add Vitals"
         ) {
-            CustomCard {
+            CustomCard (color = Color(0xFFFFFFFF)){
                 Column(
                     modifier = Modifier.padding(16.dp),
                 ) {
                     Text(
                         "Add Vitals",
-                        modifier = Modifier.align(Alignment.Start)
+                        modifier = Modifier.align(Alignment.Start),
+                        color = Color(0xFF3F0A71),
+                        fontWeight = FontWeight.W600
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                     Row {
@@ -108,7 +111,7 @@ fun MainScreen(
                             },
                             text = "Submit",
                             shape = RoundedCornerShape(10),
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9C27B0)),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9C4DB9)),
                         )
                     }
                 }
