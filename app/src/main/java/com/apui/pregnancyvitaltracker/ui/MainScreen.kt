@@ -49,7 +49,7 @@ fun MainScreen(
             onConfirm = { showDialogBox.value = false },
             title = "Add Vitals"
         ) {
-            CustomCard (color = Color(0xFFFFFFFF)){
+            CustomCard(color = Color(0xFFFFFFFF)) {
                 Column(
                     modifier = Modifier.padding(16.dp),
                 ) {

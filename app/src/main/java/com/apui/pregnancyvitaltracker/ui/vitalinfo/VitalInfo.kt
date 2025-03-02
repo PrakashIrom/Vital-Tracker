@@ -33,7 +33,7 @@ fun VitalInfo(
     LazyColumn(
         modifier = Modifier
             .padding(
-                top = 100.dp,
+                top = 120.dp,
                 start = 10.dp,
                 end = 10.dp,
                 bottom = 10.dp
