@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.apui.pregnancyvitaltracker.ui.MainScreen
 import com.apui.pregnancyvitaltracker.ui.theme.PregnancyVitalTrackerTheme
 import com.apui.pregnancyvitaltracker.utils.FABButton
@@ -42,7 +43,7 @@ class MainActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requestNotificationPermission()
         }
-
+        installSplashScreen()
         enableEdgeToEdge()
         setContent {
             PregnancyVitalTrackerTheme {

@@ -42,6 +42,8 @@ android {
 
 dependencies {
 
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     // koin for di
     implementation("io.insert-koin:koin-core:4.0.1")
     implementation("io.insert-koin:koin-android:3.5.0")
