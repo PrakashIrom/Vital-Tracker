@@ -63,27 +63,43 @@ fun MainScreen(
                     Row {
                         OutlineTextField(
                             value = sysBp.value,
-                            onValueChange = { sysBp.value = it },
+                            onValueChange = {
+                                if (it.all { char -> char.isDigit() }) {
+                                    sysBp.value = it
+                                }
+                            },
                             label = "Sys BP",
                             modifier = Modifier.weight(1f)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         OutlineTextField(
                             value = diaBp.value,
-                            onValueChange = { diaBp.value = it },
+                            onValueChange = {
+                                if (it.all { char -> char.isDigit() }) {
+                                    diaBp.value = it
+                                }
+                            },
                             label = "Dia BP",
                             modifier = Modifier.weight(1f)
                         )
                     }
                     OutlineTextField(
                         value = weight.value,
-                        onValueChange = { weight.value = it },
+                        onValueChange = {
+                            if (it.all { char -> char.isDigit() }) {
+                                weight.value = it
+                            }
+                        },
                         label = "Weight (in Kg)",
                         modifier = Modifier.fillMaxWidth()
                     )
                     OutlineTextField(
                         value = babyKicks.value,
-                        onValueChange = { babyKicks.value = it },
+                        onValueChange = {
+                            if (it.all { char -> char.isDigit() }) {
+                                babyKicks.value = it
+                            }
+                        },
                         label = "Baby Kicks",
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -92,8 +108,14 @@ fun MainScreen(
                         modifier = Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
+                        val isValid = sysBp.value.isNotBlank() &&
+                                diaBp.value.isNotBlank() &&
+                                weight.value.toFloatOrNull() != null &&
+                                babyKicks.value.toIntOrNull() != null
+
                         CustomButton(
                             onClick = {
+
                                 showDialogBox.value = false
                                 viewModel.insertItem(
                                     VitalRecordEntity(
@@ -112,6 +134,7 @@ fun MainScreen(
                             text = "Submit",
                             shape = RoundedCornerShape(10),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9C4DB9)),
+                            isEnabled = isValid
                         )
                     }
                 }

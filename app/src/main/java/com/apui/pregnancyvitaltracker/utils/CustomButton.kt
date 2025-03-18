@@ -15,17 +15,20 @@ fun CustomButton(
     text: String,
     modifier: Modifier = Modifier,
     shape: Shape,
-    colors: ButtonColors
+    colors: ButtonColors,
+    isEnabled: Boolean = true
 ) {
     Button(
         onClick = onClick,
         modifier = modifier,
         shape = shape,
-        colors = colors
+        colors = colors,
+        enabled = isEnabled
     ) {
-        Text(text = text,
+        Text(
+            text = text,
             color = Color(0xFFFFFFFF),
             fontWeight = FontWeight.W300
-            )
+        )
     }
 }
